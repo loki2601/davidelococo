@@ -1,0 +1,125 @@
+/* Page-specific styles for Home.html.
+   Colors, fonts, radii and component classes come from the Nocturne
+   design system (_ds/.../styles.css) — this file only holds the
+   page's own layout, which the system's tokens don't cover. */
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 32px 96px;
+  --entry-date-col: 170px;
+  --entry-gap: 24px;
+}
+
+a { text-decoration: none; }
+a:hover { color: var(--color-accent-400); }
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+#top, #esperienza, #competenze, #formazione, #interessi, #contatti {
+  scroll-margin-top: 80px;
+}
+
+/* — hero — */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  padding: 56px 0 64px;
+}
+
+.hero-kicker { margin-bottom: 10px; }
+
+.hero-title { margin: 0; }
+.hero-title--md { font-size: 44px; margin-bottom: 20px; }
+
+.hero-text { font-size: 16.5px; line-height: 1.7; opacity: 0.85; margin: 0 0 16px; }
+
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-photo { width: 220px; height: 220px; justify-self: end; }
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* — sections — */
+#esperienza { padding: 64px 0; }
+#competenze { padding: 24px 0 64px; }
+#formazione { padding: 24px 0 64px; }
+#interessi { padding: 24px 0 64px; }
+#contatti { padding: 48px 0 24px; border-top: 1px solid var(--color-divider); }
+
+.section-title { margin: 0 0 32px; }
+.section-title--lg { margin: 0 0 40px; }
+.section-title--tight { margin: 0 0 8px; }
+.section-title--contact { font-size: 26px; margin: 0 0 14px; }
+
+.section-lead { font-size: 15px; opacity: 0.75; margin: 0 0 32px; max-width: 56ch; }
+.contact-lead { font-size: 15px; opacity: 0.8; margin: 0 0 24px; max-width: 52ch; }
+
+/* — entry rows (esperienza / formazione) — */
+.entry-row {
+  display: grid;
+  grid-template-columns: var(--entry-date-col) 1fr;
+  gap: var(--entry-gap);
+}
+.entry-row--divided {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--color-divider);
+}
+.entry-row--stacked { padding-bottom: 20px; margin-bottom: 20px; }
+
+.entry-date { font-size: 13px; }
+.entry-date--offset { padding-top: 4px; }
+
+.entry-role { font-size: 20px; margin: 0 0 4px; }
+.entry-company { font-size: 14px; color: var(--color-accent-300); margin-bottom: 14px; }
+
+.entry-bullets { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+.entry-bullets li { font-size: 14.5px; line-height: 1.6; opacity: 0.85; }
+
+.entry-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; margin-bottom: 2px;
+}
+.entry-title--sm { font-size: 16px; margin-bottom: 3px; }
+
+.entry-detail { font-size: 13.5px; opacity: 0.7; }
+.entry-detail--sm { font-size: 14px; opacity: 0.75; }
+
+/* — skills — */
+.skill-groups { display: flex; flex-direction: column; gap: 22px; }
+.skill-group-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* — interests — */
+.interests-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+
+/* — contact — */
+.contact-links { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+
+/* — small screens — */
+@media (max-width: 640px) {
+  .page { padding: 0 20px 64px; }
+
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .hero-photo { width: 160px; height: 160px; justify-self: start; }
+  .hero-title--md { font-size: 32px; }
+
+  .entry-row { grid-template-columns: 1fr; gap: 4px; }
+  .entry-date { opacity: 0.7; }
+
+  .interests-grid { grid-template-columns: 1fr; }
+}
